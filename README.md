@@ -21,6 +21,7 @@ The purpuse of this study was to conduct a comparative analysis to demonstrate t
 ## Methods
 The first step of the study was to find a benchmark dataset that can be quickly trained. I choose [FashionMNIST](https://github.com/zalandoresearch/fashion-mnist) from *torchvision* library. The dataset consists a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from 10 classes: 
 *T-shirt/Top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle Boot*.
+While dataset partitioning, the seed was set to 42.
 
 Then, I defined 4 models with the following architectures:
 **1)** Basic CNN with 3 Convolutional Layers, 2 Max Pooling Layers and 1 Fully Connected Layer
@@ -29,9 +30,54 @@ Then, I defined 4 models with the following architectures:
 **4)** Feature extraction was done using CNN, the features were then fed into a xxx model.
 
 For implementation, I used the following libraries:
-- **numpy:**
-- **torch:**
-- **timm:**
-- **sklearn:**
-- **matplotlib:**
-- **tqdm:**
+- **numpy:** 1.26.4
+- **torch:** 2.5.1+cu124
+- **timm:**: 1.0.14
+- **sklearn:** 1.2.2
+- **matplotlib:** 3.7.5
+
+Finally, I trained the models with the following parameters:
+- **learning rate:** 1e-3
+- **number of epochs:** 10
+
+I compared the models based on their train/test accuracy and train loss.
+
+<br />
+
+## Results
+The table that compares the architectures with their accuracy, number of steps and selection score are shown below:
+| Model | Train Loss | Train Accuracy | Test Accuracy |
+|--|--|--|--|
+| Basic Model | 0.3559 | 0.8750 | 0.8662
+| Optimized Model | 0.231 | 0.9062 | 0.9034
+| EfficientNet_B0 | 0.1650 | 0.9687 | 0.9153
+| xxx (Feature Map by CNN) | - | - | -
+
+<br/>
+
+**Basic Model** <br/>
+
+Train Accuracy and Loss    | Confusion Matrix
+:-------------------------:|:-------------------------:
+![download](https://github.com/user-attachments/assets/7fcab668-dfa9-4365-859b-85d15b839381)  |  ![image](https://github.com/user-attachments/assets/bf3dd00e-7c80-492a-abd9-a6cbaf518c00)
+
+**Optimized Model** <br/>
+
+Train Accuracy and Loss    | Confusion Matrix
+:-------------------------:|:-------------------------:
+ ![download](https://github.com/user-attachments/assets/d91eb0a3-6f0b-4516-b706-648dab3047ff) | ![image](https://github.com/user-attachments/assets/a8b347d4-dc0d-4744-bba7-7d0d2d1f48cd)
+
+
+**EfficientNet_B0** <br/>
+
+Train Accuracy and Loss    | Confusion Matrix
+:-------------------------:|:-------------------------:
+![download](https://github.com/user-attachments/assets/4e29e953-5127-4b67-9430-3fc7f33ef480)  |  ![image](https://github.com/user-attachments/assets/baa8b397-5d87-46b7-8d65-942985e518fa)
+
+
+**xxx (Feature Map by CNN)** <br/>
+
+Train Accuracy and Loss    | Confusion Matrix
+:-------------------------:|:-------------------------:
+  |  
+
