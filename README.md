@@ -21,13 +21,14 @@ The purpuse of this study was to conduct a comparative analysis to demonstrate t
 ## Methods
 The first step of the study was to find a benchmark dataset that can be quickly trained. I choose [FashionMNIST](https://github.com/zalandoresearch/fashion-mnist) from *torchvision* library. The dataset consists a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from 10 classes: 
 *T-shirt/Top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle Boot*.
-While dataset partitioning, the seed was set to 42.
+Dataset did not undergo any transformations, besides the mandatory *ToTensor()* transformation (for computational reasons). The reason behind the non-transformed dataset was that transformed  (normalized) dataset yielded worse results. So we can infer that FashionMNIST is already a well designed dataset.
+Also for reproducibility, seed was set to 42 using *torch.manual_seed()* function.
 
 Then, I defined 4 models with the following architectures:
 **1)** Basic CNN with 3 Convolutional Layers, 2 Max Pooling Layers and 1 Fully Connected Layer
 **2)** Same as the 1st architecture, but with some additional layers like dropout, batch_norm, etc.
 **3)** Pretrained EfficientNet_B0 
-**4)** Feature extraction was done using CNN, the features were then fed into a xxx model.
+**4)** Feature extraction was done using CNN, the features were then fed into a Support Vector Machine model.
 
 For implementation, I used the following libraries:
 - **numpy:** 1.26.4
@@ -51,7 +52,7 @@ The table that compares the architectures with their accuracy, number of steps a
 | Basic Model | 0.3559 | 0.8750 | 0.8662
 | Optimized Model | 0.231 | 0.9062 | 0.9034
 | EfficientNet_B0 | 0.1650 | 0.9687 | 0.9153
-| xxx (Feature Map by CNN) | - | - | -
+| Hybrid (EfficientNet_B0 + SVM) | - | - | -
 
 <br/>
 
