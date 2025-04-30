@@ -82,8 +82,16 @@ Train Accuracy and Loss    | Confusion Matrix
 |:-------------------------:
 |  ![image](https://github.com/user-attachments/assets/32d3943a-efc7-4692-ad57-77da82cff44e)
 
+Here are the placements of my models based on their test accuracy:
+**1)** EfficientNet_B0
+**2)** Optimized CNN
+**3)** Hybrid
+**4)** Basic CNN
+
+<br/>
 
 ## Discussions
-Based on their training loss, our pretrained model takes the lead. 
+The results were not surprising, as EfficientNet_B0 was pretrained and has a more complex architecture. But the interesting part is that accuracies do not differ much, my worst(!) model had obtained nearly 87% accuracy, which is remarkable. It could be due to the fact that FashionMNIST is a rather easy-to-predict dataset, like it's predecessor Regular MNIST. 
+Another aspect of my experiments is the comparison between the Hybrid Model and Layer Optimized Model. It was stated in the **Methods** section that Hybrid Model is the same as Layer-Optimized-Model, with a logistic regression model as it's classification head. Contrary to my expectations prior this study, Hybrid Model performed worsr, with a nearly 4% drop on it's test accuracy. This tells us that I may have not not fully captured the power of a logistic regression architecture.
 
 
