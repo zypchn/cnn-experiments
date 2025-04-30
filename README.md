@@ -28,7 +28,7 @@ Then, I defined 4 models with the following architectures:
 **1)** Basic CNN with 3 Convolutional Layers, 2 Max Pooling Layers and 1 Fully Connected Layer
 **2)** Same as the 1st architecture, but with some additional layers like dropout, batch_norm, etc.
 **3)** Pretrained EfficientNet_B0 
-**4)** Feature extraction was done using CNN, the features were then fed into a Support Vector Machine model.
+**4)** Feature extraction was done using the 2nd model, the features were then fed into a Linear Regression model.
 
 For implementation, I used the following libraries:
 - **numpy:** 1.26.4
@@ -52,7 +52,7 @@ The table that compares the architectures with their accuracy, number of steps a
 | Basic Model | 0.3559 | 0.8750 | 0.8662
 | Optimized Model | 0.231 | 0.9062 | 0.9034
 | EfficientNet_B0 | 0.1650 | 0.9687 | 0.9153
-| Hybrid (EfficientNet_B0 + SVM) | - | - | -
+| Hybrid | 0.3541 | 0.8825 | 0.8698
 
 <br/>
 
@@ -76,9 +76,14 @@ Train Accuracy and Loss    | Confusion Matrix
 ![download](https://github.com/user-attachments/assets/4e29e953-5127-4b67-9430-3fc7f33ef480)  |  ![image](https://github.com/user-attachments/assets/baa8b397-5d87-46b7-8d65-942985e518fa)
 
 
-**xxx (Feature Map by CNN)** <br/>
+**Linear Regression (Feature Map by Layer-Optimized-CNN)** <br/>
 
-Train Accuracy and Loss    | Confusion Matrix
-:-------------------------:|:-------------------------:
-  |  
+| Confusion Matrix
+|:-------------------------:
+|  ![image](https://github.com/user-attachments/assets/32d3943a-efc7-4692-ad57-77da82cff44e)
+
+
+## Discussions
+Based on their training loss, our pretrained model takes the lead. 
+
 
